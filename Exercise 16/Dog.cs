@@ -26,6 +26,7 @@ namespace Exercise_16
             soundPlayer.PlayLooping();
             Thread.Sleep(1000);
             soundPlayer.Stop();
+            soundPlayer.Dispose();
         }
 
         public override string ToString()

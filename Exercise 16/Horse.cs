@@ -22,15 +22,15 @@ namespace Exercise_16
 
         public virtual void Neigh()
         {
-            SoundPlayer soundPlayer = new SoundPlayer(Directory.GetCurrentDirectory() + "\\Resources\\HorseNeigh.wav");
-
-            if (new Random().Next(10) == 0)
-                soundPlayer.SoundLocation = Directory.GetCurrentDirectory() + "\\Resources\\HorseBlow.wav";
+            SoundPlayer soundPlayer =
+                new Random().Next(10) != 0 ?
+                new SoundPlayer(Directory.GetCurrentDirectory() + "\\Resources\\HorseNeigh.wav") :
+                new SoundPlayer(Directory.GetCurrentDirectory() + "\\Resources\\HorseBlow.wav");
 
             soundPlayer.PlayLooping();
             Thread.Sleep(1000);
             soundPlayer.Stop();
-
+            soundPlayer.Dispose();
         }
 
         public override string ToString()
